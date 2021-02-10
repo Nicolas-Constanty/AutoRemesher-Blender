@@ -2,7 +2,6 @@ cd ThirdParties
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/tbb/
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/openvdb/
 
-git clone https://github.com/microsoft/vcpkg
 cd vcpkg
 .\vcpkg.exe update
 .\vcpkg.exe install cgal:x64-windows
