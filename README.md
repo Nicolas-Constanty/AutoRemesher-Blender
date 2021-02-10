@@ -5,7 +5,9 @@ This implementation work only on Windows 10 at the moment.
 
 ![](https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/00.PNG)
 ![](https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/04.PNG)
-![](https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/03.PNG)
+<p align="center">
+ <a href="https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/03.PNG"><img src="https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/03.PNG" /></a>
+ </p>
 
 ## Building on Windows 10
 
