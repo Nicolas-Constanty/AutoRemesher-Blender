@@ -15,3 +15,5 @@
 ThirdParties/python3.7/
 ThirdParties/openvdb/
 ThirdParties/tbb/
+
+mesh_autoremesher.zip

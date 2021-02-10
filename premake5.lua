@@ -55,6 +55,7 @@ project "autoremesher"
     language "C++"
     cppdialect "C++14"
     staticruntime "off"
+    targetextension ".pyd"
 
     files {
         "src/**.cpp",

@@ -22,3 +22,6 @@
 [submodule "ThirdParties\\vcpkg"]
 	path = ThirdParties\\vcpkg
 	url = https://github.com/microsoft/vcpkg
+[submodule "ThirdParties\\geogram\\geogram_src"]
+	path = ThirdParties\\geogram\\geogram_src
+	url = https://github.com/alicevision/geogram.git
