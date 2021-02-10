@@ -8,6 +8,16 @@ This implementation work only on Windows 10 at the moment.
 <p align="center">
  <a href="https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/03.PNG"><img src="https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/03.PNG" /></a>
  </p>
+ 
+## Install the addon
+Download the package [here](https://github.com/Nicolas-Constanty/AutoRemesher-Blender/releases).
+
+Inside Blender :
+
+- Edit->Preferences...->Add-ons->Install->Select mesh_autoremesher.zip
+- Click the checkbox to enable the Add-on
+
+⚠️ **This beta version of the addon only support Windows 10 - x64**
 
 ## Building on Windows 10
 
