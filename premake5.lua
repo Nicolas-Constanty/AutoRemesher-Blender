@@ -71,7 +71,7 @@ project "autoremesher"
         "ThirdParties/zlib/build/Release",
         "ThirdParties/openexr/build/IlmBase/Half/Release",
         "ThirdParties/openvdb/lib",
-        "ThirdParties/vcpkg/installed/x64-windows/lib"
+        "ThirdParties/gmp/lib"
     }
 
     includedirs {
@@ -101,8 +101,7 @@ project "autoremesher"
         "udan_debug",
         "udan_utils",
         "geogram",
-        "gmp",
-        "mpfr"
+        "libgmp-10"
     }
 
     filter "Release"

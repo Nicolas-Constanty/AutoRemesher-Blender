@@ -1,6 +1,7 @@
 cd ThirdParties
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/tbb/
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/openvdb/
+svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/gmp/
 
 cd vcpkg
 .\vcpkg.exe update
