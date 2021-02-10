@@ -1,0 +1,1 @@
+.\premake_v5\premake5.exe vs2019
