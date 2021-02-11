@@ -51,11 +51,3 @@ build_project.bat
 **Open autoremesher.sln** with Visual Studio.
 
 You shoud be able to build the addon in Release or Debug mode. You will also need to build [Blender](https://github.com/blender/blender) in Debug mode to be able to debug it inside Visual Studio *(only if you build in Debug mode)*.
-
-### Build the Blender package
-
-Inside a cmd console:
-```
-build_addon.bat
-```
-It should output *mesh_autoremesher.zip*, you can then refer to the [installation section](https://github.com/Nicolas-Constanty/AutoRemesher-Blender#install-the-addon-in-blender).
