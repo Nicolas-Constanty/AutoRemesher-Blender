@@ -35,6 +35,8 @@ workspace "autoremesher"
     filter "Debug"
         defines { "DEBUG" }
         defines { "USE_SPDLOG" }
+        symbols "On"
+        buildoptions { "/Zm250", "/bigobj" }
         -- defines { "PRINT_LINE" }
 
     filter "Release"
@@ -61,17 +63,16 @@ project "autoremesher"
         "src/**.cpp",
         "src/autoremesher/**.cpp",
         "include/**.h",
-        "include/autoremesher/**.h",
-        "ThirdParties/openexr/IlmBase/Half/half.cpp",
-        "ThirdParties/openexr/IlmBase/Half/toFloat.cpp"
+        "include/autoremesher/**.h"
     }
 
     libdirs {
         "ThirdParties/python3.7/libs",
         "ThirdParties/zlib/build/Release",
-        "ThirdParties/openexr/build/IlmBase/Half/Release",
+        "ThirdParties/openexr/lib",
         "ThirdParties/openvdb/lib",
-        "ThirdParties/gmp/lib"
+        "ThirdParties/gmp/lib",
+        "ThirdParties/vcpkg/installed/x64-windows/lib"
     }
 
     includedirs {
@@ -83,17 +84,17 @@ project "autoremesher"
         "ThirdParties/SpdLog/include",
         "ThirdParties/python3.7/include",
         "ThirdParties/openvdb/include",
+        "ThirdParties/tbb/include",
         "ThirdParties/geogram/src/lib",
         "ThirdParties/geogram",
         "ThirdParties/libigl/include",
         "ThirdParties/eigen",
-        "ThirdParties/openexr/IlmBase/Half",
+        "ThirdParties/openexr/include",
         "ThirdParties/vcpkg/installed/x64-windows/include"
     }
 
     links {
         "openvdb",
-        "Half-2_5",
         "advapi32",
         "shell32",
         "user32",
@@ -101,28 +102,52 @@ project "autoremesher"
         "udan_debug",
         "udan_utils",
         "geogram",
-        "libgmp-10"
+        "libgmp-10",
+        "zlib"
     }
 
     filter "Release"
+        targetname "autoremesher"
         libdirs {
             "ThirdParties/tbb/lib"
         }
 
         links {
+            "Half_s",
             "tbb",
             "python37"
         }
+
+        postbuildcommands {
+            "copy bin\\Release\\autoremesher.pyd mesh_autoremesher\\src",
+            "powershell -Command \"Compress-Archive -Update -LiteralPath 'mesh_autoremesher\'  -DestinationPath mesh_autoremesher.zip\""
+        }
     
     filter "Debug"
+        targetname "autoremesher_d"
         libdirs {
             "ThirdParties/tbb/lib/debug"
         }
 
         links {
+            "Half_s_d",
             "tbb_debug",
             "python37_d"
         }
         
+        postbuildcommands {
+            "copy bin\\Debug\\autoremesher_d.pyd mesh_autoremesher\\src",
+            "powershell -Command \"Compress-Archive -Update -LiteralPath 'mesh_autoremesher\'  -DestinationPath mesh_autoremesher.zip\""
+        }
 
+local function disableVcpkg(prj)
+    premake.w('<VcpkgEnabled>No</VcpkgEnabled>')
+end
 
+require('vstudio')
+
+premake.override(premake.vstudio.vc2010.elements, "globals", function(base, prj)
+    local calls = base(prj)
+    table.insertafter(calls, premake.vstudio.vc2010.globals, disableVcpkg)
+    return calls
+end)

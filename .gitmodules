@@ -16,9 +16,6 @@
 [submodule "ThirdParties\\eigen"]
 	path = ThirdParties/eigen
 	url = https://gitlab.com/libeigen/eigen.git
-[submodule "ThirdParties\\openexr"]
-	path = ThirdParties/openexr
-	url = https://github.com/AcademySoftwareFoundation/openexr.git
 [submodule "ThirdParties\\vcpkg"]
 	path = ThirdParties/vcpkg
 	url = https://github.com/microsoft/vcpkg

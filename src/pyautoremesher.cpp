@@ -6,6 +6,9 @@
 #include "autoremesher/quadmeshgenerator.h"
 #include "geogram/basic/common.h"
 
+#if DEBUG
+#include <udan/debug/ULogger.h>
+#endif
 
 void run_generate(QuadMeshGenerator *generator)
 {

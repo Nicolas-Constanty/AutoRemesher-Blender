@@ -16,6 +16,7 @@ ThirdParties/python3.7/
 ThirdParties/openvdb/
 ThirdParties/tbb/
 ThirdParties/gmp/
+ThirdParties/openexr/
 
 mesh_autoremesher.zip
 mesh_autoremesher/src/autoremesher.pyd
