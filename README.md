@@ -19,7 +19,7 @@ Inside Blender :
 
 ⚠️ **This beta version of the addon only support Windows 10 - x64**
 
-## Building on Windows 10
+## Building AutoRemesher-Blender on Windows 10
 
 ### Install Development Tools
 Subversion, Git, CMake and Visual Studio **must all be installed**.
@@ -58,3 +58,4 @@ Inside a cmd console:
 ```
 build_addon.bat
 ```
+It should output *mesh_autoremesher.zip*, you can then refer to the [installation section](https://github.com/Nicolas-Constanty/AutoRemesher-Blender#install-the-addon-in-blender).
