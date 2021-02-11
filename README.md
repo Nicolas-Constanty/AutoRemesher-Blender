@@ -1,15 +1,25 @@
 # AutoRemesher Blender 2.8
 
 Blender addon implementation of [AutoRemesher](https://github.com/huxingyi/autoremesher) by [huxingyi](https://github.com/huxingyi).
-This implementation work only on Windows 10 at the moment.
+This implementation works only on Windows 10 at the moment.
 
 ![](https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/00.PNG)
 ![](https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/04.PNG)
 <p align="center">
  <a href="https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/03.PNG"><img src="https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/03.PNG" /></a>
  </p>
+ 
+## Install the addon in Blender
+Download the package [here](https://github.com/Nicolas-Constanty/AutoRemesher-Blender/releases). **Do not extract it, Blender will use the .zip directly.**
 
-## Building on Windows 10
+Inside Blender :
+
+- Edit->Preferences...->Add-ons->Install->Open "mesh_autoremesher.zip"
+- Click the checkbox to enable the Add-on
+
+⚠️ **This beta version of the addon only support Windows 10 - x64**
+
+## Building AutoRemesher-Blender on Windows 10
 
 ### Install Development Tools
 Subversion, Git, CMake and Visual Studio **must all be installed**.
@@ -21,7 +31,7 @@ Subversion, Git, CMake and Visual Studio **must all be installed**.
 * Install [CMake](http://cmake.org/)
   * In the installer set the system path option to **Add CMake to the system PATH for all users**.
 
-### Setup the projet
+### Setup the projet & Build libraries
 
 Download the repository sources:
 
@@ -40,4 +50,12 @@ build_project.bat
 
 **Open autoremesher.sln** with Visual Studio.
 
-You shoud be able to build the addon in Release or Debug mode.
+You shoud be able to build the addon in Release or Debug mode. You will also need to build [Blender](https://github.com/blender/blender) in Debug mode to be able to debug it inside Visual Studio *(only if you build in Debug mode)*.
+
+### Build the Blender package
+
+Inside a cmd console:
+```
+build_addon.bat
+```
+It should output *mesh_autoremesher.zip*, you can then refer to the [installation section](https://github.com/Nicolas-Constanty/AutoRemesher-Blender#install-the-addon-in-blender).
