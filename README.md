@@ -9,7 +9,7 @@ This implementation work only on Windows 10 at the moment.
  <a href="https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/03.PNG"><img src="https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/03.PNG" /></a>
  </p>
  
-## Install the addon
+## Install the addon in Blender
 Download the package [here](https://github.com/Nicolas-Constanty/AutoRemesher-Blender/releases).
 
 Inside Blender :
@@ -31,7 +31,7 @@ Subversion, Git, CMake and Visual Studio **must all be installed**.
 * Install [CMake](http://cmake.org/)
   * In the installer set the system path option to **Add CMake to the system PATH for all users**.
 
-### Setup the projet
+### Setup the projet & Build libraries
 
 Download the repository sources:
 
