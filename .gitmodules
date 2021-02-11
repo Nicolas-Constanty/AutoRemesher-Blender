@@ -1,27 +1,27 @@
 [submodule "ThirdParties\\SpdLog"]
-	path = ThirdParties\\SpdLog
+	path = ThirdParties/SpdLog
 	url = https://github.com/gabime/spdlog.git
 [submodule "ThirdParties\\udan_debug"]
-	path = ThirdParties\\udan_debug
+	path = ThirdParties/udan_debug
 	url = https://github.com/Nicolas-Constanty/udan_debug.git
 [submodule "ThirdParties\\udan_utils"]
-	path = ThirdParties\\udan_utils
+	path = ThirdParties/udan_utils
 	url = https://github.com/Nicolas-Constanty/udan_utils.git
 [submodule "ThirdParties\\libigl"]
-	path = ThirdParties\\libigl
+	path = ThirdParties/libigl
 	url = https://github.com/libigl/libigl.git
 [submodule "ThirdParties\\blosc"]
-	path = ThirdParties\\blosc
+	path = ThirdParties/blosc
 	url = https://github.com/Blosc/c-blosc.git
 [submodule "ThirdParties\\eigen"]
-	path = ThirdParties\\eigen
+	path = ThirdParties/eigen
 	url = https://gitlab.com/libeigen/eigen.git
 [submodule "ThirdParties\\openexr"]
-	path = ThirdParties\\openexr
+	path = ThirdParties/openexr
 	url = https://github.com/AcademySoftwareFoundation/openexr.git
 [submodule "ThirdParties\\vcpkg"]
-	path = ThirdParties\\vcpkg
+	path = ThirdParties/vcpkg
 	url = https://github.com/microsoft/vcpkg
 [submodule "ThirdParties\\geogram\\geogram_src"]
-	path = ThirdParties\\geogram\\geogram_src
+	path = ThirdParties/geogram/geogram_src
 	url = https://github.com/alicevision/geogram.git

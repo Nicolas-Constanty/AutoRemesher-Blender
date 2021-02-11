@@ -5,12 +5,12 @@ from .src.autoremesherui import AutoRemesherSettings, OBJECT_OT_autoremesher, MA
 
 bl_info = {
     "name": "AutoRemesher",
-    "description": "AutoRemesher for Blender",
-    "author": "nicolas constanty",
-    "version": (1, 0, 0),
+    "description": "AutoRemesher for Blender. This addon use AutoRemesher by huxingyi(https://github.com/huxingyi/autoremesher).",
+    "author": "huxingyi, Nicolas Constanty",
+    "version": (0, 1, 0),
     "blender": (2, 91, 0),
-    "wiki_url": "my github url here",
-    "tracker_url": "my github url here/issues",
+    "wiki_url": "https://github.com/Nicolas-Constanty/AutoRemesher-Blender",
+    "tracker_url": "https://github.com/Nicolas-Constanty/AutoRemesher-Blender/issues",
     "category": "Mesh"
 }
 
