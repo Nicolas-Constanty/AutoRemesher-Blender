@@ -10,7 +10,7 @@ This implementation works only on Windows 10 at the moment.
  </p>
  
 ## Install the addon in Blender
-Download the package [here](https://github.com/Nicolas-Constanty/AutoRemesher-Blender/releases). **Do not extract it, Blender will use directly the .zip.**
+Download the package [here](https://github.com/Nicolas-Constanty/AutoRemesher-Blender/releases). **Do not extract it, Blender will use the .zip directly.**
 
 Inside Blender :
 
