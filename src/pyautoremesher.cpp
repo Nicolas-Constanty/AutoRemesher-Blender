@@ -129,18 +129,6 @@ static struct PyModuleDef modDef = {
 	NULL, NULL, NULL, NULL
 };
 
-/** Module Initialization function: must have this name schema
- *  PyInit_<ModuleName> where ModuleName is the same base name of the
- *  shared library ModuleName.so (on Linux) or ModuleName.pyd (on Windows)
- */
-// PyMODINIT_FUNC PyInit_autoremesher(void)
-// {
-//     Py_Initialize();
-//     PyObject* pModule = PyModule_Create(&modDef);
-//     PyModule_AddObject(pModule, "version", Py_BuildValue("s", "version 0.1-Alpha"));
-//     return pModule;
-// }
-
 PyMODINIT_FUNC PyInit_autoremesher(void)
 {
     PyObject *m;
