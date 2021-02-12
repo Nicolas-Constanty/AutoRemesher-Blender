@@ -1,0 +1,25 @@
+image:
+ - Visual Studio 2019
+
+platform:
+  - x64
+
+configuration:
+  - Release
+
+clone_script:
+  - cmd: git clone -q --recursive -j8 --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
+  - cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
+
+cache:
+  - ThirdParties/ -> appveyor.yml
+
+before_build:
+  - cmd: dependency.bat
+  - cmd: build_project.bat
+
+build:
+  - msbuild /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
+
+artifacts:
+  - mesh_autoremesher.zip
