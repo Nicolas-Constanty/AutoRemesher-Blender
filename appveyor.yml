@@ -23,3 +23,16 @@ build:
 
 artifacts:
   - path: mesh_autoremesher.zip
+
+deploy:
+  release: mesh_autoremesher_$(APPVEYOR_BUILD_VERSION)
+  description: 'Release description'
+  provider: GitHub
+  auth_token:
+    secure: SQvuYfrURv2EZv3nJdTPzPlHGtj82sxm7iC6JIN2l2ahguw/VpKFVDt4fQDSYms2 # your encrypted token from GitHub
+  artifact: mesh_autoremesher.zip
+  draft: false
+  prerelease: true
+  on:
+    branch: master                 # release from master branch only
+    APPVEYOR_REPO_TAG: true        # deploy on tag push only
