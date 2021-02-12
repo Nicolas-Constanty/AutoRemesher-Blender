@@ -18,5 +18,8 @@ before_build:
   - cmd: dependency.bat
   - cmd: build_project.bat
 
+build:
+  project: autoremesher.sln
+
 artifacts:
   - path: mesh_autoremesher.zip
