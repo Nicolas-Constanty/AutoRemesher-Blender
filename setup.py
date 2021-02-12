@@ -149,7 +149,7 @@ autoremesher = Extension('autoremesher',
                              "src/AutoRemesher/quadmeshgenerator.cpp"
                              ],
                          library_dirs=[
-                             "ThirdParties/python3.7/libs",
+                             "ThirdParties/python/lib",
                              "ThirdParties/zlib/build/Release",
                              "ThirdParties/openexr/lib",
                              "ThirdParties/openvdb/lib",
