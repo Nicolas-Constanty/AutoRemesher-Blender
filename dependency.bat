@@ -33,7 +33,7 @@ echo:
 
 cd vcpkg
 if %errorlevel% neq 0 exit /b %errorlevel%
-.\bootstrap-vcpkg.bat
+.\bootstrap-vcpkg.bat -disableMetrics
 .\vcpkg.exe update
 .\vcpkg.exe install cgal:x64-windows
 if %errorlevel% neq 0 exit /b %errorlevel%1
