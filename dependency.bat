@@ -33,10 +33,8 @@ echo:
 
 cd vcpkg
 if %errorlevel% neq 0 exit /b %errorlevel%
-.\bootstrap-vcpkg.bat -disableMetrics
-echo End bootstrap
+cmd /c .\bootstrap-vcpkg.bat -disableMetrics
 .\vcpkg.exe update
-echo Start instamll
 .\vcpkg.exe install cgal:x64-windows
 if %errorlevel% neq 0 exit /b %errorlevel%1
 .\vcpkg.exe install boost-uuid:x64-windows
