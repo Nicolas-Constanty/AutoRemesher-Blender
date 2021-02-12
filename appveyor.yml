@@ -26,7 +26,19 @@ artifacts:
 
 deploy:
   release: mesh_autoremesher_$(APPVEYOR_BUILD_VERSION)
-  description: 'Release description'
+  description: |
+    Addon for [AutoRemesher](https://github.com/huxingyi/autoremesher) by [huxingyi](https://github.com/huxingyi)
+    Inside Blender
+    - Edit->Preferences...->Add-ons->Install->Select mesh_autoremesher.zip
+    - Click the checkbox to enable the Add-on
+    
+    **This beta version of the addon only support Windows 10 - x64**
+
+    Note
+
+    - I did not implemented the loading bar inside Blender at the moment, so when the computation is started, Blender do not respond until the end of the generation.
+    - The generation is pretty unstable at the moment, so you might encounter crashes depending of the mesh that you are using. Blender will be killed since I did not handle this kind of errors. 
+    Same behaviour happen on the Qt GUI of the original repository, so I did not handle it (because the author is aware of this issue, and is working toward to fix it).
   provider: GitHub
   auth_token:
     secure: SQvuYfrURv2EZv3nJdTPzPlHGtj82sxm7iC6JIN2l2ahguw/VpKFVDt4fQDSYms2 # your encrypted token from GitHub
