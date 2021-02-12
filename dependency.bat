@@ -32,6 +32,7 @@ echo ############################################################
 echo: 
 
 cd vcpkg
+dir
 if %errorlevel% neq 0 exit /b %errorlevel%
 .\vcpkg.exe update
 if %errorlevel% neq 0 exit /b %errorlevel%
