@@ -239,73 +239,72 @@ bool AutoRemesher::remesh()
     }
     m_threadProgress.resize(parameterizationThreads.size());
 
-    size_t islandSize = parameterizationThreads.size();
-    size_t thread_count = std::min(static_cast<size_t>(tbb::task_scheduler_init::default_num_threads()), islandSize);
-    size_t index_per_thread = islandSize / thread_count;
-    udan::utils::ThreadPool thread_pool(thread_count);
-    std::vector<std::shared_ptr<udan::utils::Task>> tasks;
-    tasks.reserve(thread_count);
-
-    for (size_t i = 0; i < thread_count; ++i)
+    class SurfaceParameterizer
     {
-        const size_t start = i * index_per_thread;
-        size_t end = start + index_per_thread;
-        if (end > islandSize || (i == thread_count - 1 && end < islandSize))
-            end = islandSize;
-        tasks.push_back(std::make_shared<udan::utils::Task>(
-            [start, end, &parameterizationThreads]()
-            {
-                for (size_t i = start; i != end; ++i) {
-                    auto& thread = parameterizationThreads[i];
+    public:
+        SurfaceParameterizer(std::vector<ParameterizationThread>* parameterizationThreads) :
+            m_parameterizationThreads(parameterizationThreads)
+        {
+        }
+        void operator()(const tbb::blocked_range<size_t>& range) const
+        {
+            for (size_t i = range.begin(); i != range.end(); ++i) {
+                auto& thread = (*m_parameterizationThreads)[i];
 
-                    LOG_DEBUG("Island[{}]: resampling...", thread.islandIndex);
+#if DEBUG
+                LOG_DEBUG("Island[{}]: resampling...", thread.islandIndex);
 
-                    resample(thread.island->vertices, thread.island->triangles, thread.island->voxelSize, thread.islandIndex);
+#endif
 
-                    const auto& vertices = thread.island->vertices;
-                    const auto& triangles = thread.island->triangles;
+                resample(thread.island->vertices, thread.island->triangles, thread.island->voxelSize, thread.islandIndex);
 
-                    LOG_DEBUG("Island[{}]: : parameterizing...", thread.islandIndex);
-                	
-                    ReportProgressContext reportProgressContext;
-                    reportProgressContext.islandIndex = i;
-                    reportProgressContext.autoRemesher = thread.autoRemesher;
-                    geogram_report_progress_tag = &reportProgressContext;
-                    geogram_report_progress_round = 0;
-                    geogram_report_progress_callback = ReportProgress;
+                const auto& vertices = thread.island->vertices;
+                const auto& triangles = thread.island->triangles;
 
-                    thread.parameterizer = new Parameterizer(&vertices,
-                        &triangles,
-                        nullptr);
-                    thread.parameterizer->setScaling(thread.island->scaling);
-                    thread.parameterizer->parameterize();
+#if DEBUG
+                LOG_DEBUG("Island[{}]: : parameterizing...", thread.islandIndex);
+#endif
+                ReportProgressContext reportProgressContext;
+                reportProgressContext.islandIndex = i;
+                reportProgressContext.autoRemesher = thread.autoRemesher;
+                geogram_report_progress_tag = &reportProgressContext;
+                geogram_report_progress_round = 0;
+                geogram_report_progress_callback = ReportProgress;
 
-                    std::vector<std::vector<Vector2>>* uvs = thread.parameterizer->takeTriangleUvs();
-                    LOG_DEBUG("Island[{}]: quad extracting...", thread.islandIndex);
-                    thread.remesher = new QuadExtractor(&vertices,
-                        &triangles,
-                        uvs);
-                    if (!thread.remesher->extract()) {
-                        delete thread.remesher;
-                        thread.remesher = nullptr;
-                    }
-                    if (nullptr != thread.remesher) {
-                        LOG_DEBUG("Island[{}]: remesh done, vertices:{} quads:{}", thread.islandIndex, thread.remesher->remeshedVertices().size(), thread.remesher->remeshedQuads().size());
-                    } else {
-                        LOG_DEBUG("Island[{}]: remesh failed");
-                    }
-                    delete uvs;
+                thread.parameterizer = new Parameterizer(&vertices,
+                    &triangles,
+                    nullptr);
+                thread.parameterizer->setScaling(thread.island->scaling);
+                thread.parameterizer->parameterize();
+
+                std::vector<std::vector<Vector2>>* uvs = thread.parameterizer->takeTriangleUvs();
+#if DEBUG
+                LOG_DEBUG("Island[{}]: quad extracting...", thread.islandIndex);
+#endif
+                thread.remesher = new QuadExtractor(&vertices,
+                    &triangles,
+                    uvs);
+                if (!thread.remesher->extract()) {
+                    delete thread.remesher;
+                    thread.remesher = nullptr;
                 }
+#if DEBUG
+                if (nullptr != thread.remesher) {
+                    LOG_DEBUG("Island[{}]: remesh done, vertices:{} quads:{}", thread.islandIndex, thread.remesher->remeshedVertices().size(), thread.remesher->remeshedQuads().size());
+
+                }
+                else {
+                    LOG_DEBUG("Island[{}]: remesh failed");
+                }
+#endif
+                delete uvs;
             }
-            ));
-    }
-
-    for (auto task : tasks)
-    {
-        thread_pool.Schedule(task);
-    }
-
-    thread_pool.StopWhenQueueEmpty();
+        }
+    private:
+        std::vector<ParameterizationThread>* m_parameterizationThreads = nullptr;
+    };
+    tbb::parallel_for(tbb::blocked_range<size_t>(0, parameterizationThreads.size()),
+        SurfaceParameterizer(&parameterizationThreads));
         
     for (size_t i = 0; i < parameterizationThreads.size(); ++i) {
         auto &thread = parameterizationThreads[i];
