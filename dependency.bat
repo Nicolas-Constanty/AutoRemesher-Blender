@@ -35,7 +35,6 @@ cd vcpkg
 if %errorlevel% neq 0 exit /b %errorlevel%
 .\bootstrap-vcpkg.bat
 .\vcpkg.exe update
-if %errorlevel% neq 0 exit /b %errorlevel%
 .\vcpkg.exe install cgal:x64-windows
 if %errorlevel% neq 0 exit /b %errorlevel%1
 .\vcpkg.exe install boost-uuid:x64-windows
