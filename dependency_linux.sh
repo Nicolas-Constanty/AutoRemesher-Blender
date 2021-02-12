@@ -2,6 +2,10 @@
 
 set -e
 
+sudo add-apt-repository
+sudo apt update
+sudo apt -y install subversion
+
 cd ThirdParties
 
 ROOT=`pwd`
@@ -18,7 +22,7 @@ svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_x86_64/openvdb/
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_x86_64/gmp/
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_x86_64/openexr/
-svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_x86_64/python python3.7
+svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_x86_64/python
 
 echo
 echo ############################################################
