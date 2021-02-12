@@ -18,8 +18,5 @@ before_build:
   - cmd: dependency.bat
   - cmd: build_project.bat
 
-build:
-  - msbuild /logger:"C:\Program Files\AppVeyor\BuildAgent\Appveyor.MSBuildLogger.dll"
-
 artifacts:
   - mesh_autoremesher.zip
