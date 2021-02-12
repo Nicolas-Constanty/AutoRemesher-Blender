@@ -35,10 +35,12 @@ cd vcpkg
 if %errorlevel% neq 0 exit /b %errorlevel%
 cmd /c .\bootstrap-vcpkg.bat -disableMetrics
 .\vcpkg.exe update
+.\vcpkg.exe install yasm-tool:x86-windows
+if %errorlevel% neq 0 exit /b %errorlevel%
 .\vcpkg.exe install cgal:x64-windows
-if %errorlevel% neq 0 exit /b %errorlevel%1
+if %errorlevel% neq 0 exit /b %errorlevel%
 .\vcpkg.exe install boost-uuid:x64-windows
-if %errorlevel% neq 0 exit /b %errorlevel%1
+if %errorlevel% neq 0 exit /b %errorlevel%
 
 cd ..
 
