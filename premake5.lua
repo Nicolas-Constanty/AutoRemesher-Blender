@@ -99,7 +99,6 @@ project "autoremesher"
         "user32",
         "opengl32",
         "udan_debug",
-        "udan_utils",
         "geogram",
         "libgmp-10",
         "zlib"

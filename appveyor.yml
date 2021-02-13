@@ -1,6 +1,5 @@
 image:
  - Visual Studio 2019
- - Ubuntu2004
 
 platform:
   - x64
@@ -11,8 +10,6 @@ configuration:
 clone_script:
   - cmd: git clone -q --recursive -j8 --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
   - cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
-  - sh: git clone -q --recursive -j8 --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
-  - sh: git checkout -qf %APPVEYOR_REPO_COMMIT%
 
 cache:
   - ThirdParties/ -> appveyor.yml
@@ -20,10 +17,6 @@ cache:
 before_build:
   - cmd: dependency.bat
   - cmd: build_project.bat
-  - sh: ./dependency_linux.sh
-
-build_script:
-  - sh: ./build_linux.sh
 
 build:
   project: autoremesher.sln
@@ -49,7 +42,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: SQvuYfrURv2EZv3nJdTPzPlHGtj82sxm7iC6JIN2l2ahguw/VpKFVDt4fQDSYms2 # your encrypted token from GitHub
-  artifact: .*\.zip
+  artifact: mesh_autoremesher.zip
   draft: false
   prerelease: true
   on:
