@@ -47,11 +47,7 @@ deploy:
   provider: GitHub
   auth_token:
     secure: SQvuYfrURv2EZv3nJdTPzPlHGtj82sxm7iC6JIN2l2ahguw/VpKFVDt4fQDSYms2 # your encrypted token from GitHub
-  artifacts: 
-    - path: mesh_autoremesher.zip
-      name: mesh_autoremesher.zip
-    - path: mesh_autoremesher_linux.zip
-      name: mesh_autoremesher_linux.zip
+  artifact: *.zip
   draft: false
   prerelease: true
   on:
