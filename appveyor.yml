@@ -11,6 +11,8 @@ configuration:
 clone_script:
   - cmd: git clone -q --recursive -j8 --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
   - cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
+  - sh: git clone -q --recursive -j8 --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
+  - sh: git checkout -qf %APPVEYOR_REPO_COMMIT%
 
 cache:
   - ThirdParties/ -> appveyor.yml
@@ -18,10 +20,10 @@ cache:
 before_build:
   - cmd: dependency.bat
   - cmd: build_project.bat
-  - sh: dependency_linux.sh
+  - sh: ./dependency_linux.sh
 
 build_script:
-  - sh: build_linux.sh
+  - sh: ./build_linux.sh
 
 build:
   project: autoremesher.sln
