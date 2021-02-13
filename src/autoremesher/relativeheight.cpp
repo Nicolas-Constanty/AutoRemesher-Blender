@@ -19,8 +19,8 @@
  */
 #include <queue>
 #include <unordered_set>
-#include <AutoRemesher/relativeheight.h>
-#include <AutoRemesher/vector3.h>
+#include <autoremesher/relativeheight.h>
+#include <autoremesher/vector3.h>
 
 namespace AutoRemesher
 {

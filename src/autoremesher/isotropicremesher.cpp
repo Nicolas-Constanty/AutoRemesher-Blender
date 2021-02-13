@@ -30,8 +30,8 @@
 #include <CGAL/Polygon_mesh_processing/border.h>
 #include <CGAL/Polygon_mesh_processing/repair.h>
 #include <boost/function_output_iterator.hpp>
-#include <AutoRemesher/vector3.h>
-#include <AutoRemesher/isotropicremesher.h>
+#include <autoremesher/vector3.h>
+#include <autoremesher/isotropicremesher.h>
 
 typedef CGAL::Exact_predicates_inexact_constructions_kernel     Kernel;
 typedef Kernel::Point_3                                         Point;

@@ -17,10 +17,10 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  */
-#include <AutoRemesher/quadextractor.h>
-#include <AutoRemesher/positionkey.h>
-#include <AutoRemesher/double.h>
-#include <AutoRemesher/meshseparator.h>
+#include <autoremesher/quadextractor.h>
+#include <autoremesher/positionkey.h>
+#include <autoremesher/double.h>
+#include <autoremesher/meshseparator.h>
 #include <unordered_map>
 #include <unordered_set>
 #include <queue>

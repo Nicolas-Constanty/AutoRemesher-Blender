@@ -23,8 +23,8 @@
 #include <set>
 #include <unordered_map>
 #include <unordered_set>
-#include <AutoRemesher/vector3.h>
-#include <AutoRemesher/vector2.h>
+#include <autoremesher/vector3.h>
+#include <autoremesher/vector2.h>
 
 namespace AutoRemesher
 {

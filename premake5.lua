@@ -45,9 +45,8 @@ workspace "autoremesher"
 
 outputdir = "%{cfg.buildcfg}-%{cfg.system}-%{cfg.architecture}"
 
-group "Udan"
+group "ThirdParties"
     include "ThirdParties/udan_debug"
-    include "ThirdParties/udan_utils"
     include "ThirdParties/geogram"
 
 group ""
@@ -79,7 +78,7 @@ project "autoremesher"
         "include",
         "ThirdParties/udan_debug/include",
         "ThirdParties/udan_utils/include",
-        "ThirdParties/geogram/include/geogram",
+        "ThirdParties/geogram/include",
         "ThirdParties/geogram/geogram_src/src/lib",
         "ThirdParties/SpdLog/include",
         "ThirdParties/python3.7/include",
