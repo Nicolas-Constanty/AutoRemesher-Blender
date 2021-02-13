@@ -1,5 +1,6 @@
 image:
  - Visual Studio 2019
+ - Ubuntu2004
 
 platform:
   - x64
@@ -17,6 +18,10 @@ cache:
 before_build:
   - cmd: dependency.bat
   - cmd: build_project.bat
+  - sh: dependency_linux.sh
+
+build_script:
+  - sh: build_linux.sh
 
 build:
   project: autoremesher.sln
@@ -42,7 +47,11 @@ deploy:
   provider: GitHub
   auth_token:
     secure: SQvuYfrURv2EZv3nJdTPzPlHGtj82sxm7iC6JIN2l2ahguw/VpKFVDt4fQDSYms2 # your encrypted token from GitHub
-  artifact: mesh_autoremesher.zip
+  artifacts: 
+    - path: mesh_autoremesher.zip
+      name: mesh_autoremesher.zip
+    - path: mesh_autoremesher_linux.zip
+      name: mesh_autoremesher_linux.zip
   draft: false
   prerelease: true
   on:
