@@ -17,11 +17,11 @@
  *  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
  *  SOFTWARE.
  */
-#include <AutoRemesher/parameterizer.h>
+#include <autoremesher/parameterizer.h>
 #include <exploragram/hexdom/quad_cover.h>
 #include <geogram/mesh/mesh_io.h>
 #include <geogram/mesh/mesh_frame_field.h>
-#include <AutoRemesher/relativeheight.h>
+#include <autoremesher/relativeheight.h>
 #include <unordered_map>
 #include <unordered_set>
 

@@ -23,20 +23,18 @@
 #include <unordered_set>
 #include <unordered_map>
 #include <queue>
-#include <AutoRemesher/autoremesher.h>
-#include <AutoRemesher/isotropicremesher.h>
-#include <AutoRemesher/parameterizer.h>
-#include <AutoRemesher/quadextractor.h>
-#include <AutoRemesher/vdbremesher.h>
-#include <AutoRemesher/meshseparator.h>
+#include <autoremesher/autoremesher.h>
+#include <autoremesher/isotropicremesher.h>
+#include <autoremesher/parameterizer.h>
+#include <autoremesher/quadextractor.h>
+#include <autoremesher/vdbremesher.h>
+#include <autoremesher/meshseparator.h>
 #include <tbb/parallel_for.h>
 #include <tbb/blocked_range.h>
 //#include <tbb/tbb_thread.h>
-#include <geogram_report_progress.h>
+#include <geogram/geogram_report_progress.h>
 #include <tbb/task_scheduler_init.h>
-#include <udan/utils/ThreadPool.h>
-#include <udan/utils/Task.h>
-#include <udan/debug/uLogger.h>
+#include <udan/debug/ulogger.h>
 
 thread_local void *geogram_report_progress_tag;
 thread_local int geogram_report_progress_round;

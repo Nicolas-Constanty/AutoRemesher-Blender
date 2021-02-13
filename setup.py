@@ -1,5 +1,29 @@
 from distutils.core import setup, Extension
 
+extra_objects = [
+    "ThirdParties/python/lib/libpython3.7m.a",
+    "ThirdParties/tbb/lib/libtbb.a",
+    "ThirdParties/openexr/lib/libHalf.a",
+    "ThirdParties/openvdb/lib/libopenvdb.a",
+    "ThirdParties/gmp/lib/libgmp.a",
+    "ThirdParties/vcpkg/installed/x64-linux/lib/libz.a",
+    "ThirdParties/vcpkg/installed/x64-linux/lib/libgmp.a",
+    "ThirdParties/vcpkg/installed/x64-linux/lib/libmpfr.a",
+    "ThirdParties/blosc/lib/libblosc.a",
+    "ThirdParties/boost/lib/libboost_chrono.a",
+    "ThirdParties/boost/lib/libboost_date_time.a",
+    "ThirdParties/boost/lib/libboost_filesystem.a",
+    "ThirdParties/boost/lib/libboost_iostreams.a",
+    "ThirdParties/boost/lib/libboost_locale.a",
+    "ThirdParties/boost/lib/libboost_program_options.a",
+    "ThirdParties/boost/lib/libboost_regex.a",
+    "ThirdParties/boost/lib/libboost_serialization.a",
+    "ThirdParties/boost/lib/libboost_system.a",
+    "ThirdParties/boost/lib/libboost_thread.a",
+    "ThirdParties/boost/lib/libboost_wave.a",
+    "ThirdParties/boost/lib/libboost_wserialization.a",
+    ]
+
 autoremesher = Extension('autoremesher',
                          define_macros=[
                              ('NDEBUG', None),
@@ -7,15 +31,14 @@ autoremesher = Extension('autoremesher',
                              ('_USE_MATH_DEFINES', None),
                              ('NOMINMAX', None),
                              ('PY_SSIZE_T_CLEAN', None),
-                             ('OPENEXR_DLL', None),
-                             ('HALF_EXPORTS', None)
+                             ('_GLIBCXX_USE_CXX11_ABI', 0)
                              ],
                          undef_macros=['UNICODE', 'AUTOREMESHER_EXPORTS'],
                          include_dirs = [
-                             "include",
+                             "include/",
                              "ThirdParties/udan_debug/include",
                              "ThirdParties/udan_utils/include",
-                             "ThirdParties/geogram/include/geogram",
+                             "ThirdParties/geogram/include",
                              "ThirdParties/geogram/geogram_src/src/lib",
                              "ThirdParties/SpdLog/include",
                              "ThirdParties/python3.7/include",
@@ -26,7 +49,7 @@ autoremesher = Extension('autoremesher',
                              "ThirdParties/libigl/include",
                              "ThirdParties/eigen",
                              "ThirdParties/openexr/include",
-                             "ThirdParties/vcpkg/installed/x64-windows/include"
+                             "ThirdParties/vcpkg/installed/x64-linux/include"
                              ],
                          sources = [
                              'src/pyautoremesher.cpp',
@@ -104,18 +127,18 @@ autoremesher = Extension('autoremesher',
                              "ThirdParties/geogram/geogram_src/src/lib/geogram/mesh/mesh_tetrahedralize.cpp",
                              "ThirdParties/geogram/geogram_src/src/lib/geogram/mesh/mesh_topology.cpp",
                              "ThirdParties/geogram/geogram_src/src/lib/geogram/mesh/triangle_intersection.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_api.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_arpack.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_blas.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_cholmod.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_context.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_cuda.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_iterative_solvers.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_matrix.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_mkl.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_os.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_preconditioners.cpp",
-                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_superlu.cpp",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_api.c",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_arpack.c",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_blas.c",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_cholmod.c",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_context.c",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_cuda.c",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_iterative_solvers.c",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_matrix.c",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_mkl.c",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_os.c",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_preconditioners.c",
+                             "ThirdParties/geogram/geogram_src/src/lib/geogram/NL/nl_superlu.c",
                              "ThirdParties/geogram/geogram_src/src/lib/geogram/numerics/expansion_nt.cpp",
                              "ThirdParties/geogram/geogram_src/src/lib/geogram/numerics/lbfgs_optimizers.cpp",
                              "ThirdParties/geogram/geogram_src/src/lib/geogram/numerics/matrix_util.cpp",
@@ -138,33 +161,34 @@ autoremesher = Extension('autoremesher',
                              "ThirdParties/geogram/geogram_src/src/lib/geogram/voronoi/RVD.cpp",
                              "ThirdParties/geogram/geogram_src/src/lib/geogram/voronoi/RVD_callback.cpp",
                              "ThirdParties/geogram/geogram_src/src/lib/geogram/voronoi/RVD_mesh_builder.cpp",
-                             "src/AutoRemesher/autoremesher.cpp",
-                             "src/AutoRemesher/isotropicremesher.cpp",
-                             "src/AutoRemesher/meshseparator.cpp",
-                             "src/AutoRemesher/parameterizer.cpp",
-                             "src/AutoRemesher/positionkey.cpp",
-                             "src/AutoRemesher/quadextractor.cpp",
-                             "src/AutoRemesher/relativeheight.cpp",
-                             "src/AutoRemesher/vdbremesher.cpp",
-                             "src/AutoRemesher/quadmeshgenerator.cpp"
+                             "src/autoremesher/autoremesher.cpp",
+                             "src/autoremesher/isotropicremesher.cpp",
+                             "src/autoremesher/meshseparator.cpp",
+                             "src/autoremesher/parameterizer.cpp",
+                             "src/autoremesher/positionkey.cpp",
+                             "src/autoremesher/quadextractor.cpp",
+                             "src/autoremesher/relativeheight.cpp",
+                             "src/autoremesher/vdbremesher.cpp",
+                             "src/autoremesher/quadmeshgenerator.cpp"
                              ],
-                         library_dirs=[
-                             "ThirdParties/python/lib",
-                             "ThirdParties/zlib/build/Release",
-                             "ThirdParties/openexr/lib",
-                             "ThirdParties/openvdb/lib",
-                             "ThirdParties/gmp/lib",
-                             "ThirdParties/vcpkg/installed/x64-windows/lib"
-                             ],
-                         libraries=[
-                             'python37',
-                             'tbb',
-                             'openvdb',
-                             'udan_debug',
-                             'geogram',
-                             "libgmp-10",
-                             "zlib"
-                             ]
+                             extra_objects = extra_objects,
+                             extra_compile_args=['-std=c++17', '-fpermissive']
+                        #  library_dirs=[
+                             
+                        #      "ThirdParties/zlib/build/Release",
+                        #      "ThirdParties/gmp/lib",
+                        #      "ThirdParties/vcpkg/installed/x64-windows/lib"
+                        #      ],
+                        #  libraries=[
+                        #      'openvdb',
+                        #      'udan_debug',
+                        #      'geogram',
+                        #      "libgmp-10",
+                        #      "Half_s",
+                        #      "zlib"
+                        #      ]
+
+                        
                          )
 
 setup(

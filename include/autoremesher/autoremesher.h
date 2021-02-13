@@ -24,7 +24,7 @@
 #include <vector>
 #include <cstddef>
 #include <map>
-#include <AutoRemesher/vector3.h>
+#include <autoremesher/vector3.h>
 
 namespace AutoRemesher
 {

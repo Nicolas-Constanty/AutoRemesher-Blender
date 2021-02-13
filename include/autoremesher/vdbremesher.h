@@ -21,7 +21,7 @@
  */
 #ifndef AUTO_REMESHER_VDB_REMESHER_H
 #define AUTO_REMESHER_VDB_REMESHER_H
-#include <AutoRemesher/vector3.h>
+#include <autoremesher/vector3.h>
 
 namespace AutoRemesher
 {
