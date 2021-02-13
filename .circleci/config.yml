@@ -1,0 +1,13 @@
+
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version
+      - image: babiole/auto_remesher_env:v1.0
+
+    working_directory: /AutoRemesher-Blender
+    steps:
+      - checkout
+      - ./dependency_linux.sh
+      - ./build_linux.sh
