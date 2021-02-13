@@ -9,6 +9,8 @@ jobs:
     working_directory: /AutoRemesher-Blender
     steps:
       - checkout
+      - run: git submodule sync
+      - run: git submodule update --init --recursive
       - run:
           name: Dependencies
           command: ./dependency_linux.sh
