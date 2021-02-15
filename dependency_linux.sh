@@ -13,6 +13,7 @@ sudo apt -y install libtool
 sudo apt -y install libpthread-stubs0-dev
 sudo apt -y install texinfo
 sudo apt -y install ccache
+sudo apt -y install wget
 
 cd ThirdParties
 
@@ -33,7 +34,6 @@ svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_x86_64/gmp/
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_x86_64/blosc/
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_x86_64/openexr/
-svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_x86_64/python
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/linux_centos7_x86_64/boost
 
 echo
