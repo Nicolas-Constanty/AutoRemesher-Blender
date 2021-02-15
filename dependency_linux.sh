@@ -60,6 +60,47 @@ fi
 
 cd ..
 
+cd python
+if [ -e Python-3.7.9 ] 
+then
+echo "Python 3.7 already installed"
+else
+wget https://www.python.org/ftp/python/3.7.9/Python-3.7.9.tgz
+tar -zxvf Python-3.7.9.tgz
+cd Python-3.7.9
+./configure --enable-optimizations --prefix=`pwd`/../3.7m
+make -j8
+make install
+cd ..
+fi
+
+
+if [ -e Python-3.8.7 ]
+then
+echo "Python 3.8 already installed"
+else
+wget https://www.python.org/ftp/python/3.8.7/Python-3.8.7.tgz
+tar -zxvf Python-3.8.7.tgz
+cd Python-3.8.7
+./configure --enable-optimizations --prefix=`pwd`/../3.8
+make -j8
+make install
+cd ..
+fi
+
+if [ -e Python-3.9.1 ]
+then
+echo "Python 3.9 already installed"
+else
+wget https://www.python.org/ftp/python/3.9.1/Python-3.9.1.tgz
+tar -zxvf Python-3.9.1.tgz
+cd Python-3.9.1
+./configure --enable-optimizations --prefix=`pwd`/../3.9
+make -j8
+make install
+cd ..
+fi
+
 echo
 echo DEPENDENCIES SUCCESSFULLY INSTALLED
 echo You can now run build_project.bat

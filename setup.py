@@ -1,7 +1,8 @@
 from distutils.core import setup, Extension
+import os
 
+pyv = os.environ['PY_VERSION']
 extra_objects = [
-    "ThirdParties/python/lib/libpython3.7m.a",
     "ThirdParties/tbb/lib/libtbb.a",
     "ThirdParties/openexr/lib/libHalf.a",
     "ThirdParties/openvdb/lib/libopenvdb.a",
@@ -41,7 +42,7 @@ autoremesher = Extension('autoremesher',
                              "ThirdParties/geogram/include",
                              "ThirdParties/geogram/geogram_src/src/lib",
                              "ThirdParties/SpdLog/include",
-                             "ThirdParties/python3.7/include",
+                             "ThirdParties/python/{}/include".format(pyv),
                              "ThirdParties/openvdb/include",
                              "ThirdParties/tbb/include",
                              "ThirdParties/geogram/src/lib",
@@ -173,22 +174,6 @@ autoremesher = Extension('autoremesher',
                              ],
                              extra_objects = extra_objects,
                              extra_compile_args=['-std=c++17', '-fpermissive']
-                        #  library_dirs=[
-                             
-                        #      "ThirdParties/zlib/build/Release",
-                        #      "ThirdParties/gmp/lib",
-                        #      "ThirdParties/vcpkg/installed/x64-windows/lib"
-                        #      ],
-                        #  libraries=[
-                        #      'openvdb',
-                        #      'udan_debug',
-                        #      'geogram',
-                        #      "libgmp-10",
-                        #      "Half_s",
-                        #      "zlib"
-                        #      ]
-
-                        
                          )
 
 setup(

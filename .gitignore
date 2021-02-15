@@ -22,6 +22,8 @@ ThirdParties/boost/
 ThirdParties/blosc/
 build/
 
+*.so
 mesh_autoremesher.zip
+mesh_autoremesher_linux.zip
 mesh_autoremesher/src/autoremesher.pyd
 mesh_autoremesher/src/autoremesher.cpython-37m-x86_64-linux-gnu.so
