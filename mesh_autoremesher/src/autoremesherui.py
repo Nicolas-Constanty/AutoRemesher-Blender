@@ -37,11 +37,6 @@ class OBJECT_OT_autoremesher(bpy.types.Operator):
         ar_settings = context.scene.ar_settings
         vertices, faces = generate_quad_mesh(data.vertices.values(), data.polygons.values(), ar_settings.density, ar_settings.edge_scale, int(ar_settings.model_type))
 
-        original_stdout = sys.stdout
-        with open('C:\\Users\\nicol\\log.txt', 'w') as f:
-            sys.stdout = f
-            print(vertices, faces)
-            sys.stdout = original_stdout
         edges = []
         new_mesh = bpy.data.meshes.new(name="new_mesh")
         new_mesh.from_pydata(vertices, edges, faces)
