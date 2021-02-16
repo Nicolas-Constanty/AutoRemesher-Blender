@@ -14,6 +14,7 @@ sudo apt -y install libpthread-stubs0-dev
 sudo apt -y install texinfo
 sudo apt -y install ccache
 sudo apt -y install wget pkg-config
+git pull
 
 cd ThirdParties
 
