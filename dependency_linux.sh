@@ -13,7 +13,7 @@ sudo apt -y install libtool
 sudo apt -y install libpthread-stubs0-dev
 sudo apt -y install texinfo
 sudo apt -y install ccache
-sudo apt -y install wget
+sudo apt -y install wget pkg-config
 
 cd ThirdParties
 
@@ -60,6 +60,7 @@ fi
 
 cd ..
 
+mkdir python
 cd python
 if [ -e Python-3.7.9 ] 
 then
