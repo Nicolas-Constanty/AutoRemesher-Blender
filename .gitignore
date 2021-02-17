@@ -23,6 +23,7 @@ ThirdParties/blosc/
 build/
 
 *.so
+*.pyd
 mesh_autoremesher.zip
 mesh_autoremesher_linux.zip
 mesh_autoremesher/src/autoremesher.pyd

@@ -24,6 +24,8 @@ svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/ope
 if %errorlevel% neq 0 exit /b %errorlevel%
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/blosc/
 if %errorlevel% neq 0 exit /b %errorlevel%
+svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/python/
+if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo:
 echo ############################################################

@@ -1,8 +1,8 @@
-    -- premake5.lua
-workspace "autoremesher"
+-- premake5.lua
+workspace "autoremesher37"
 
     architecture "x86_64"
-    startproject "autoremesher"
+    startproject "autoremesher37"
 
     configurations
     { 
@@ -51,7 +51,7 @@ group "ThirdParties"
 
 group ""
 
-project "autoremesher"
+project "autoremesher37"
     kind "SharedLib"
     language "C++"
     cppdialect "C++14"
@@ -66,7 +66,7 @@ project "autoremesher"
     }
 
     libdirs {
-        "ThirdParties/python3.7/libs",
+        "ThirdParties/python/37/libs",
         "ThirdParties/zlib/build/Release",
         "ThirdParties/openexr/lib",
         "ThirdParties/openvdb/lib",
@@ -81,7 +81,7 @@ project "autoremesher"
         "ThirdParties/geogram/include",
         "ThirdParties/geogram/geogram_src/src/lib",
         "ThirdParties/SpdLog/include",
-        "ThirdParties/python3.7/include",
+        "ThirdParties/python/37/include",
         "ThirdParties/openvdb/include",
         "ThirdParties/tbb/include",
         "ThirdParties/geogram/src/lib",
@@ -105,7 +105,7 @@ project "autoremesher"
     }
 
     filter "Release"
-        targetname "autoremesher"
+        targetname "autoremesher.37"
         libdirs {
             "ThirdParties/tbb/lib"
         }
@@ -117,12 +117,12 @@ project "autoremesher"
         }
 
         postbuildcommands {
-            "copy bin\\Release\\autoremesher.pyd mesh_autoremesher\\src",
+            "copy bin\\Release\\autoremesher.37.pyd mesh_autoremesher\\src",
             "powershell -Command \"Compress-Archive -Update -LiteralPath 'mesh_autoremesher\'  -DestinationPath mesh_autoremesher.zip\""
         }
     
     filter "Debug"
-        targetname "autoremesher_d"
+        targetname "autoremesher_d.37"
         libdirs {
             "ThirdParties/tbb/lib/debug"
         }
@@ -134,7 +134,7 @@ project "autoremesher"
         }
         
         postbuildcommands {
-            "copy bin\\Debug\\autoremesher_d.pyd mesh_autoremesher\\src",
+            "copy bin\\Debug\\autoremesher_d.37.pyd mesh_autoremesher\\src",
             "powershell -Command \"Compress-Archive -Update -LiteralPath 'mesh_autoremesher\'  -DestinationPath mesh_autoremesher.zip\""
         }
 
