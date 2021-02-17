@@ -7,11 +7,6 @@ platform:
 configuration:
   - Release
 
-environment:
-  matrix:
-  - solution_name: autoremesher37.sln
-  - solution_name: autoremesher39.sln
-
 clone_script:
   - cmd: git clone -q --recursive -j8 --branch=%APPVEYOR_REPO_BRANCH% https://github.com/%APPVEYOR_REPO_NAME%.git %APPVEYOR_BUILD_FOLDER%
   - cmd: git checkout -qf %APPVEYOR_REPO_COMMIT%
@@ -24,7 +19,8 @@ before_build:
   - cmd: build_project.bat
 
 build_script:
-  - msbuild %solution_name%
+  - msbuild autoremesher37.sln
+  - msbuild autoremesher39.sln
 
 artifacts:
   - path: mesh_autoremesher.zip
