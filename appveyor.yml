@@ -19,8 +19,8 @@ before_build:
   - cmd: build_project.bat
 
 build_script:
-  - msbuild autoremesher37.sln
-  - msbuild autoremesher39.sln
+  - msbuild autoremesher37.sln /property:Configuration=Release
+  - msbuild autoremesher39.sln /t:rebuild /p:Configuration=Release
 
 artifacts:
   - path: mesh_autoremesher.zip

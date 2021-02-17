@@ -105,7 +105,7 @@ project "autoremesher39"
     }
 
     filter "Release"
-        targetname "autoremesher.39"
+        targetname "autoremesher.cp39-win_amd64"
         libdirs {
             "ThirdParties/tbb/lib"
         }
@@ -117,12 +117,12 @@ project "autoremesher39"
         }
 
         postbuildcommands {
-            "copy bin\\Release\\autoremesher.39.pyd mesh_autoremesher\\src",
+            "copy bin\\Release\\autoremesher.cp39-win_amd64.pyd mesh_autoremesher\\src",
             "powershell -Command \"Compress-Archive -Update -LiteralPath 'mesh_autoremesher\'  -DestinationPath mesh_autoremesher.zip\""
         }
     
     filter "Debug"
-        targetname "autoremesher_d.39"
+        targetname "autoremesher_d.cp39-win_amd64"
         libdirs {
             "ThirdParties/tbb/lib/debug"
         }
@@ -134,7 +134,7 @@ project "autoremesher39"
         }
         
         postbuildcommands {
-            "copy bin\\Debug\\autoremesher_d.39.pyd mesh_autoremesher\\src",
+            "copy bin\\Debug\\autoremesher_d.cp39-win_amd64.pyd mesh_autoremesher\\src",
             "powershell -Command \"Compress-Archive -Update -LiteralPath 'mesh_autoremesher\'  -DestinationPath mesh_autoremesher.zip\""
         }
 

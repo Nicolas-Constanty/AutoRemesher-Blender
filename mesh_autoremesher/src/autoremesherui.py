@@ -38,16 +38,14 @@ class OBJECT_OT_autoremesher(bpy.types.Operator):
         vertices, faces = generate_quad_mesh(data.vertices.values(), data.polygons.values(), ar_settings.density, ar_settings.edge_scale, int(ar_settings.model_type))
 
         edges = []
-        new_mesh = bpy.data.meshes.new(name="new_mesh")
+        new_mesh = bpy.data.meshes.new(name=data.name)
         new_mesh.from_pydata(vertices, edges, faces)
         new_mesh.update()
-        # make object from mesh
-        new_object = bpy.data.objects.new('new_object', new_mesh)
-        # make collection
-        new_collection = bpy.data.collections.new('new_collection')
-        bpy.context.scene.collection.children.link(new_collection)
-        # add object to scene collection
-        new_collection.objects.link(new_object)
+
+        new_object = bpy.data.objects.new(obj.name, new_mesh)
+        
+        parent_collection = obj.users_collection[0]
+        parent_collection.objects.link(new_object)
 
         obj.select_set(False)
         bpy.data.objects[new_object.name].select_set(True)
@@ -55,6 +53,9 @@ class OBJECT_OT_autoremesher(bpy.types.Operator):
         bpy.ops.mesh.select_loose()
         bpy.ops.mesh.delete(type='VERT')
         bpy.ops.object.editmode_toggle()
+        bpy.ops.object.shade_smooth()
+        new_object.rotation_euler = obj.rotation_euler
+        new_object.location = obj.location
         return {'FINISHED'}
 
 class MAINPANEL_PT_autoremesher(bpy.types.Panel):
