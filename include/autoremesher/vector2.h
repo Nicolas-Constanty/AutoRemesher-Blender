@@ -22,7 +22,7 @@
 #ifndef AUTO_REMESHER_VECTOR2_H
 #define AUTO_REMESHER_VECTOR2_H
 #include <string>
-#include <AutoRemesher/double.h>
+#include <autoremesher/double.h>
 #include <Eigen/Dense>
 
 namespace AutoRemesher

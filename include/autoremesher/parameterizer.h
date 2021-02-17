@@ -19,8 +19,8 @@
  */
 #ifndef AUTO_REMESHER_PARAMETERIZER_H
 #define AUTO_REMESHER_PARAMETERIZER_H
-#include <AutoRemesher/vector3.h>
-#include <AutoRemesher/vector2.h>
+#include <autoremesher/vector3.h>
+#include <autoremesher/vector2.h>
 #include <vector>
 
 namespace AutoRemesher

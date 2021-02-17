@@ -10,9 +10,6 @@
 [submodule "ThirdParties\\libigl"]
 	path = ThirdParties/libigl
 	url = https://github.com/libigl/libigl.git
-[submodule "ThirdParties\\blosc"]
-	path = ThirdParties/blosc
-	url = https://github.com/Blosc/c-blosc.git
 [submodule "ThirdParties\\eigen"]
 	path = ThirdParties/eigen
 	url = https://gitlab.com/libeigen/eigen.git

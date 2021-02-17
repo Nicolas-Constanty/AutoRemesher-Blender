@@ -19,7 +19,7 @@
  */
 #ifndef AUTO_REMESHER_RELATIVE_HEIGHT_H
 #define AUTO_REMESHER_RELATIVE_HEIGHT_H
-#include <AutoRemesher/vector3.h>
+#include <autoremesher/vector3.h>
 #include <vector>
 #include <map>
 

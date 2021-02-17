@@ -21,8 +21,8 @@
  */
 #ifndef AUTO_REMESHER_VECTOR3_H
 #define AUTO_REMESHER_VECTOR3_H
-#include <AutoRemesher/double.h>
-#include <AutoRemesher/vector2.h>
+#include <autoremesher/double.h>
+#include <autoremesher/vector2.h>
 #include <string>
 #include <iostream>
 #include <vector>

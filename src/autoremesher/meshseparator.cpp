@@ -21,7 +21,7 @@
  */
 #include <unordered_set>
 #include <queue>
-#include <AutoRemesher/meshseparator.h>
+#include <autoremesher/meshseparator.h>
 
 namespace AutoRemesher
 {

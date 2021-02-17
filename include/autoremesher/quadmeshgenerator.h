@@ -28,7 +28,7 @@
 //#define AUTOREMESHER_API __declspec(dllimport)
 //#endif
 
-#include <AutoRemesher/autoremesher.h>
+#include <autoremesher/autoremesher.h>
 
 class /*AUTOREMESHER_API*/ QuadMeshGenerator
 {

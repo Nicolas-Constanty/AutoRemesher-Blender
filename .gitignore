@@ -12,11 +12,19 @@
 **.sln.DotSettings.user
 **/x64/
 
+ThirdParties/python/
 ThirdParties/python3.7/
 ThirdParties/openvdb/
 ThirdParties/tbb/
 ThirdParties/gmp/
 ThirdParties/openexr/
+ThirdParties/boost/
+ThirdParties/blosc/
+build/
 
+*.so
+*.pyd
 mesh_autoremesher.zip
+mesh_autoremesher_linux.zip
 mesh_autoremesher/src/autoremesher.pyd
+mesh_autoremesher/src/autoremesher.cpython-37m-x86_64-linux-gnu.so

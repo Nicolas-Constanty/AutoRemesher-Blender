@@ -22,6 +22,10 @@ svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/gmp
 if %errorlevel% neq 0 exit /b %errorlevel%
 svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/openexr/
 if %errorlevel% neq 0 exit /b %errorlevel%
+svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/blosc/
+if %errorlevel% neq 0 exit /b %errorlevel%
+svn checkout https://svn.blender.org/svnroot/bf-blender/trunk/lib/win64_vc15/python/
+if %errorlevel% neq 0 exit /b %errorlevel%
 
 echo:
 echo ############################################################

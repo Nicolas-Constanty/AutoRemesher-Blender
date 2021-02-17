@@ -1,0 +1,18 @@
+
+version: 2
+jobs:
+  build:
+    docker:
+      # specify the version
+      - image: babiole/auto_remesher_env:v1.0
+
+    working_directory: /AutoRemesher-Blender
+    steps:
+      - checkout
+      - run: git submodule sync
+      - run: git submodule update --init --recursive
+      - run:
+          name: Build
+          command: ./build_linux.sh
+      - store_artifacts:
+         path: mesh_autoremesher_linux.zip
