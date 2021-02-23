@@ -1,7 +1,7 @@
 # AutoRemesher Blender 2.8
 
 Blender addon implementation of [AutoRemesher](https://github.com/huxingyi/autoremesher) by [huxingyi](https://github.com/huxingyi).
-This implementation works only on Windows 10 at the moment.
+This implementation works on Windows 10 and Ubuntu.
 
 ![](https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/00.PNG)
 ![](https://raw.githubusercontent.com/Nicolas-Constanty/AutoRemesher-Blender/master/screenshots/04.PNG)
